@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-text font-sans antialiased selection:bg-brand-mint selection:text-brand-navy;
+    min-height: 100vh;
+    background-color: #f4f7f8;
+  }
+}
+
+/* Shared workspace styling echoes the public homepage's navy and teal identity. */
+.app-shell {
+  background:
+    radial-gradient(ellipse at 88% 0%, rgba(20, 184, 166, 0.07), transparent 34rem),
+    #f4f7f8;
+}
+
+.app-sidebar {
+  color: #e2e8f0;
+  background: linear-gradient(180deg, #10243a 0%, #0b1c2d 100%);
+  border-color: rgba(255, 255, 255, 0.09) !important;
+  box-shadow: 10px 0 34px rgba(16, 36, 58, 0.08);
+}
+
+.app-sidebar > div:first-child {
+  background: rgba(255, 255, 255, 0.025) !important;
+  border-color: rgba(255, 255, 255, 0.09) !important;
+}
+
+.app-sidebar > div:first-child .text-brand-navy,
+.app-sidebar > div:first-child .text-brand-muted,
+.app-sidebar > div:nth-child(2) > div:first-child {
+  color: #dce8ef !important;
+}
+
+.app-sidebar > div:nth-child(2) a {
+  color: #a9bac7;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.app-sidebar > div:nth-child(2) a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(2px);
+}
+
+.app-sidebar > div:nth-child(2) a[aria-current="page"] {
+  color: #fff;
+  background: linear-gradient(120deg, #0d9488, #0f766e);
+  box-shadow: 0 8px 20px rgba(13, 148, 136, 0.22);
+}
+
+.app-sidebar > div:last-child {
+  background: rgba(5, 18, 31, 0.45) !important;
+  border-color: rgba(255, 255, 255, 0.09) !important;
+}
+
+.app-sidebar > div:last-child > div {
+  background: rgba(255, 255, 255, 0.055) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: none !important;
+}
+
+.app-sidebar > div:last-child .text-brand-navy,
+.app-sidebar > div:last-child .text-brand-muted {
+  color: #dce8ef !important;
+}
+
+.app-header {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  border-color: #e5ecef !important;
+}
+
+.app-shell main > div > div[class*="bg-white"] {
+  box-shadow: 0 8px 28px rgba(16, 36, 58, 0.045);
+  transition: box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.app-shell main > div > div[class*="bg-white"]:hover {
+  border-color: #d2e2e3;
+  box-shadow: 0 12px 32px rgba(16, 36, 58, 0.075);
+}
+
+.app-shell.dark-mode {
+  color: #e6edf3;
+  background: radial-gradient(ellipse at 88% 0%, rgba(20, 184, 166, 0.1), transparent 34rem), #0b1724;
+  color-scheme: dark;
+}
+
+.dark-mode .app-header {
+  background: rgba(16, 36, 58, 0.9);
+  border-color: rgba(255, 255, 255, 0.09) !important;
+}
+
+.dark-mode main .bg-white,
+.dark-mode main [class*="bg-white/"] {
+  background-color: #12263a !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-mode main .bg-slate-50,
+.dark-mode main .bg-slate-100,
+.dark-mode main .bg-teal-50\/50 {
+  background-color: #192f43 !important;
+}
+
+.dark-mode main .text-brand-navy,
+.dark-mode main .text-brand-text,
+.dark-mode .app-header .text-brand-navy,
+.dark-mode .app-header h1 {
+  color: #edf5f8 !important;
+}
+
+.dark-mode main .text-brand-muted,
+.dark-mode .app-header .text-brand-muted {
+  color: #a8bac8 !important;
+}
+
+.dark-mode main .border-brand-border,
+.dark-mode main [class*="border-slate-"] {
+  border-color: rgba(255, 255, 255, 0.11) !important;
+}
+
+.dark-mode main input,
+.dark-mode main select,
+.dark-mode main textarea,
+.dark-mode .app-header input {
+  color: #edf5f8;
+  background-color: #0d1e2e;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark-mode main input::placeholder,
+.dark-mode main textarea::placeholder,
+.dark-mode .app-header input::placeholder {
+  color: #8ea2b2;
+}
+
+.dark-mode main table thead,
+.dark-mode main table tbody tr {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-mode .theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Authentication pages: calm, focused cards framed by the product's dark brand. */
+.auth-page {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 8% 15%, rgba(20, 184, 166, 0.12), transparent 29rem),
+    radial-gradient(ellipse at 95% 85%, rgba(16, 36, 58, 0.08), transparent 30rem),
+    #f4f7f8 !important;
+}
+
+.auth-page::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 360px;
+  height: 360px;
+  right: -190px;
+  top: 8%;
+  border: 1px solid rgba(13, 148, 136, 0.12);
+  border-radius: 50%;
+  box-shadow: 0 0 0 34px rgba(13, 148, 136, 0.025), 0 0 0 72px rgba(13, 148, 136, 0.02);
+}
+
+.auth-page > div {
+  position: relative;
+  z-index: 1;
+}
+
+.auth-page h1 {
+  max-width: 17ch;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.auth-form-card {
+  border-color: rgba(16, 36, 58, 0.08) !important;
+  box-shadow: 0 24px 70px rgba(16, 36, 58, 0.12), 0 3px 10px rgba(16, 36, 58, 0.04) !important;
+}
+
+.auth-page input,
+.auth-page select {
+  min-height: 44px;
+  background-color: #f7f9fa;
+}
+
+.auth-page input:focus,
+.auth-page select:focus {
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.1);
+}
+
+.auth-page label {
+  letter-spacing: 0.07em;
+}
+
+.modern-modal {
+  border-radius: 1.25rem;
+  box-shadow: 0 28px 90px rgba(4, 18, 32, 0.26);
+}
+
+.modern-modal > div:first-child {
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(120deg, #f4f8f8, #fff);
+}
+
+.modern-modal > div:last-child {
+  padding: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .auth-page { padding-top: 2rem; padding-bottom: 2rem; }
+  .auth-page h1 { font-size: 2rem; }
+  .auth-form-card { border-radius: 1.25rem; }
+}
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
